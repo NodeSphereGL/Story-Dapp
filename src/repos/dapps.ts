@@ -5,6 +5,7 @@ import {
   getAddressByHash,
   createAddress,
   updateAddressLastSeen,
+  updateAddressLabel,
   linkDappAddress,
   createChainIfNotExists
 } from '../db/queries';
@@ -51,6 +52,7 @@ export class DappRepository {
 
       // Create new dApp with minimal data
       const dappId = await createDapp({
+        dapp_id: slug, // Use slug as dapp_id
         slug,
         title,
         external: false,
@@ -75,9 +77,9 @@ export class DappRepository {
       const addresses = await storyscanClient.getAddressesBySlug(slug);
       console.log(`Found ${addresses.length} addresses for ${slug}`);
 
-      // Process each address
-      for (const address of addresses) {
-        await this.processAddress(dappId, address);
+      // Process each address item (now they are objects with metadata)
+      for (const addressItem of addresses) {
+        await this.processAddress(dappId, addressItem);
       }
 
       console.log(`✅ Completed syncing addresses for ${slug}`);
@@ -90,35 +92,50 @@ export class DappRepository {
   /**
    * Process a single address for a dApp
    */
-  private async processAddress(dappId: number, address: StoryscanAddress): Promise<void> {
+  private async processAddress(dappId: number, addressItem: any): Promise<void> {
     try {
-      const addressHash = address.address_hash.toLowerCase();
+      const normalizedAddressHash = addressItem.hash.toLowerCase();
+      
+      // Extract label from metadata tags where tagType is "name"
+      let label = `Address for dApp ${dappId}`; // Default label
+      if (addressItem.metadata?.tags) {
+        const nameTag = addressItem.metadata.tags.find((tag: any) => tag.tagType === 'name');
+        if (nameTag) {
+          label = nameTag.name;
+          console.log(`📝 Found label for ${normalizedAddressHash}: ${label}`);
+        }
+      }
       
       // Check if address already exists
       let addressId: number;
-      const existingAddress = await getAddressByHash(this.chainId, addressHash);
+      const existingAddress = await getAddressByHash(this.chainId, normalizedAddressHash);
       
       if (existingAddress) {
         addressId = existingAddress.id;
-        // Update last seen timestamp
-        await updateAddressLastSeen(addressId);
-        console.log(`Updated existing address: ${addressHash}`);
+        // Update last seen timestamp and label if it has changed
+        if (existingAddress.label !== label) {
+          await updateAddressLabel(addressId, label);
+          console.log(`🔄 Updated label for existing address: ${normalizedAddressHash} -> ${label}`);
+        } else {
+          await updateAddressLastSeen(addressId);
+          console.log(`✅ Updated existing address: ${normalizedAddressHash} (${label})`);
+        }
       } else {
-        // Create new address
+        // Create new address with extracted label
         addressId = await createAddress(
           this.chainId,
-          addressHash,
-          address.label,
-          address.address_type
+          normalizedAddressHash,
+          label,
+          'contract' // Default to contract since these are usually smart contract addresses
         );
-        console.log(`Created new address: ${addressHash} (ID: ${addressId})`);
+        console.log(`🆕 Created new address: ${normalizedAddressHash} (ID: ${addressId}, Label: ${label})`);
       }
 
       // Link address to dApp
-      await linkDappAddress(dappId, addressId, address.address_type);
-      console.log(`Linked address ${addressHash} to dApp ${dappId}`);
+      await linkDappAddress(dappId, addressId, 'contract');
+      console.log(`🔗 Linked address ${normalizedAddressHash} to dApp ${dappId}`);
     } catch (error) {
-      console.error(`Failed to process address ${address.address_hash}:`, error);
+      console.error(`❌ Failed to process address ${addressItem.hash}:`, error);
       throw error;
     }
   }

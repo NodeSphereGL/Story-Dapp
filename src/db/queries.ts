@@ -155,6 +155,13 @@ export async function updateAddressLastSeen(addressId: number): Promise<void> {
   );
 }
 
+export async function updateAddressLabel(addressId: number, label: string): Promise<void> {
+  await pool.execute(
+    'UPDATE addresses SET label = ?, last_seen_at = CURRENT_TIMESTAMP WHERE id = ?',
+    [label, addressId]
+  );
+}
+
 export async function linkDappAddress(dappId: number, addressId: number, role?: string): Promise<void> {
   await pool.execute(
     'INSERT IGNORE INTO dapp_addresses (dapp_id, address_id, role) VALUES (?, ?, ?)',

@@ -85,14 +85,14 @@ export class StatsRepository {
         }
 
         // Parse block time and floor to hour
-        const blockTime = parseBlockTime(tx.block_time);
+        const blockTime = parseBlockTime(tx.timestamp);
         const tsHour = floorToHourUTC(blockTime);
 
         // Update hourly transaction count
         await upsertHourlyTxCount(dappId, this.chainId, tsHour, 1);
 
         // Add user address to hourly users
-        await insertHourlyUserOnce(dappId, this.chainId, tsHour, tx.from);
+        await insertHourlyUserOnce(dappId, this.chainId, tsHour, tx.from.hash);
 
         // Track touched hours
         result.hoursTouched.add(tsHour);
