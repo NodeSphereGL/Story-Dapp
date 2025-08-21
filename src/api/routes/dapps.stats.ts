@@ -89,12 +89,12 @@ export async function getDappStats(req: Request, res: Response): Promise<void> {
           dapp = await dappRepository.getDapp(slug);
         }
         
-        if (dapp) {
-          dappIds.push(dapp.id);
-          dappNames.push(dapp.name);
-        } else {
-          console.warn(`dApp not found: ${dappName}`);
-        }
+                 if (dapp) {
+           dappIds.push(dapp.id);
+           dappNames.push(dapp.title);
+         } else {
+           console.warn(`dApp not found: ${dappName}`);
+         }
       } catch (error) {
         console.error(`Error looking up dApp ${dappName}:`, error);
       }

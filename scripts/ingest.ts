@@ -6,9 +6,9 @@ import { ingestDapp, ingestMultipleDapps } from '../src/jobs/ingest';
  */
 
 const dappsToIngest = [
-  { slug: 'story-hunt', name: 'Story Hunt' },
-  { slug: 'verio', name: 'Verio' },
-  { slug: 'meta-pool', name: 'Meta Pool' }
+  { slug: 'storyhunt', title: 'StoryHunt' },
+  { slug: 'verio', title: 'Verio' },
+  { slug: 'piperx', title: 'PiperX' }
 ];
 
 async function manualIngestion(): Promise<void> {
@@ -25,9 +25,9 @@ async function manualIngestion(): Promise<void> {
     results.forEach((result, index) => {
       const dapp = dappsToIngest[index];
       if (result.success) {
-        console.log(`✅ ${dapp.name}: ${result.transactionsProcessed} transactions, ${result.hoursTouched} hours touched`);
+        console.log(`✅ ${dapp.title}: ${result.transactionsProcessed} transactions, ${result.hoursTouched} hours touched`);
       } else {
-        console.log(`❌ ${dapp.name}: ${result.error}`);
+        console.log(`❌ ${dapp.title}: ${result.error}`);
       }
     });
     
@@ -43,23 +43,23 @@ async function manualIngestion(): Promise<void> {
   }
 }
 
-async function ingestSingleDapp(slug: string, name: string): Promise<void> {
-  console.log(`🔄 Starting manual ingestion for ${name} (${slug})...`);
+async function ingestSingleDapp(slug: string, title: string): Promise<void> {
+  console.log(`🔄 Starting manual ingestion for ${title} (${slug})...`);
   
   try {
-    const result = await ingestDapp(slug, name);
+    const result = await ingestDapp(slug, title);
     
     if (result.success) {
-      console.log(`✅ ${name} ingestion completed successfully!`);
+      console.log(`✅ ${title} ingestion completed successfully!`);
       console.log(`📊 Transactions processed: ${result.transactionsProcessed}`);
       console.log(`⏰ Hours touched: ${result.hoursTouched}`);
       console.log(`⏱️  Duration: ${result.duration}ms`);
     } else {
-      console.error(`❌ ${name} ingestion failed: ${result.error}`);
+      console.error(`❌ ${title} ingestion failed: ${result.error}`);
     }
     
   } catch (error) {
-    console.error(`❌ Error ingesting ${name}:`, error);
+    console.error(`❌ Error ingesting ${title}:`, error);
     throw error;
   }
 }
@@ -72,13 +72,13 @@ async function main(): Promise<void> {
       // No arguments, run batch ingestion
       await manualIngestion();
     } else if (args.length === 2) {
-      // Two arguments: slug and name
-      const [slug, name] = args;
-      await ingestSingleDapp(slug, name);
+      // Two arguments: slug and title
+      const [slug, title] = args;
+      await ingestSingleDapp(slug, title);
     } else {
       console.log('Usage:');
       console.log('  npm run ingest                    # Run batch ingestion for all dApps');
-      console.log('  npm run ingest <slug> <name>      # Ingest specific dApp');
+      console.log('  npm run ingest <slug> <title>     # Ingest specific dApp');
       console.log('');
       console.log('Examples:');
       console.log('  npm run ingest story-hunt "Story Hunt"');

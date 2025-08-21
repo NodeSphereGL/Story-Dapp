@@ -3,8 +3,24 @@ import { pool } from './mysql';
 // Types for database operations
 export interface Dapp {
   id: number;
+  dapp_id: string;
   slug: string;
-  name: string;
+  title: string;
+  external: boolean;
+  internal_wallet: boolean;
+  priority: number | null;
+  logo: string | null;
+  logo_dark_mode: string | null;
+  short_description: string | null;
+  categories: string | null;
+  author: string | null;
+  url: string | null;
+  description: string | null;
+  site: string | null;
+  twitter: string | null;
+  telegram: string | null;
+  discord: string | null;
+  github: string | null;
   status: number;
   created_at: Date;
   updated_at: Date;
@@ -51,10 +67,52 @@ export async function getDappBySlug(slug: string): Promise<Dapp | null> {
   return (rows as Dapp[])[0] || null;
 }
 
-export async function createDapp(slug: string, name: string): Promise<number> {
+export async function createDapp(dappData: {
+  dapp_id: string;
+  slug: string;
+  title: string;
+  external?: boolean;
+  internal_wallet?: boolean;
+  priority?: number;
+  logo?: string;
+  logo_dark_mode?: string;
+  short_description?: string;
+  categories?: string;
+  author?: string;
+  url?: string;
+  description?: string;
+  site?: string;
+  twitter?: string;
+  telegram?: string;
+  discord?: string;
+  github?: string;
+}): Promise<number> {
   const [result] = await pool.execute(
-    'INSERT INTO dapps (slug, name) VALUES (?, ?)',
-    [slug, name]
+    `INSERT INTO dapps (
+      slug, title, external, internal_wallet, priority, logo, logo_dark_mode,
+      short_description, categories, author, url, description, site,
+      twitter, telegram, discord, github
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      dappData.dapp_id,
+      dappData.slug,
+      dappData.title,
+      dappData.external || false,
+      dappData.internal_wallet || false,
+      dappData.priority || null,
+      dappData.logo || null,
+      dappData.logo_dark_mode || null,
+      dappData.short_description || null,
+      dappData.categories || null,
+      dappData.author || null,
+      dappData.url || null,
+      dappData.description || null,
+      dappData.site || null,
+      dappData.twitter || null,
+      dappData.telegram || null,
+      dappData.discord || null,
+      dappData.github || null
+    ]
   );
   return (result as any).insertId;
 }

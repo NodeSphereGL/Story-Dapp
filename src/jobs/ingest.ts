@@ -151,10 +151,10 @@ export async function ingestDapp(slug: string, name: string, hoursBack?: number)
   return job.execute();
 }
 
-export async function ingestMultipleDapps(dapps: Array<{ slug: string; name: string }>): Promise<IngestionJobResult[]> {
+export async function ingestMultipleDapps(dapps: Array<{ slug: string; title: string }>): Promise<IngestionJobResult[]> {
   const configs = dapps.map(dapp => ({ 
     dappSlug: dapp.slug, 
-    dappName: dapp.name,
+    dappName: dapp.title,
     hoursBack: undefined 
   }));
   return IngestionJob.executeMultiple(configs);

@@ -1,0 +1,1283 @@
+[
+    {
+      "id": "orbiter",
+      "title": "Orbiter",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/Orbiter.png",
+      "logoDarkMode": null,
+      "shortDescription": "A decentralized cross-rollup Layer 2 bridge with a contract only on the destination side.",
+      "categories": [
+        "Bridges"
+      ],
+      "author": "Orbiter",
+      "url": "https://www.orbiter.finance/?source=Ethereum&dest=Optimism&token=ETH&utm_source=Blockscout",
+      "description": "A decentralized cross-rollup Layer 2 bridge with a contract only on the destination side.",
+      "site": "https://www.orbiter.finance/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/Orbiter_Finance",
+      "telegram": null,
+      "discord": "https://discord.gg/orbiter-finance",
+      "github": [
+        "https://github.com/Orbiter-Finance"
+      ]
+    },
+    {
+      "id": "tenderly",
+      "title": "Tenderly",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/tenderly.png",
+      "logoDarkMode": null,
+      "shortDescription": "Full-stack Web3 infrastructure. Move fast from development to on-chain deployment with a multichain node RPC, integrated development environments, and debugging tools.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "Tenderly",
+      "url": "https://dashboard.tenderly.co/?utm_source=Blockscout",
+      "description": "Full-stack Web3 infrastructure. Move fast from development to on-chain deployment with a multichain node RPC, integrated development environments, and debugging tools.",
+      "site": "https://tenderly.co/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/TenderlyApp",
+      "telegram": null,
+      "discord": null,
+      "github": [
+        "https://github.com/Tenderly"
+      ]
+    },
+    {
+      "id": "zapper",
+      "title": "Zapper",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/zapper.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "Track your DeFi and NFT portfolio. Explore and discover new onchain opportunities.",
+      "categories": [
+        "Swaps",
+        "NFTs"
+      ],
+      "author": "Zapper",
+      "url": "https://zapper.xyz/?utm_source=blockscout",
+      "description": "Track your DeFi and NFT portfolio. Explore and discover new onchain opportunities.",
+      "site": "https://zapper.xyz/?utm_source=blockscout",
+      "twitter": "https://twitter.com/zapper_fi",
+      "telegram": null,
+      "discord": "https://discord.com/invite/NZSvkjX",
+      "github": []
+    },
+    {
+      "id": "zeno-lend",
+      "title": "Zeno Lend",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/zeno-lend.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Zeno Lend is a decentralized lending protocol that enables secure and efficient supplying and borrowing of crypto assets. Our platform offers transparent access to liquidity, empowering users to make informed financial decisions while maximizing their crypto potential.",
+      "categories": [
+        "Lending"
+      ],
+      "author": "Zeno Lend",
+      "url": "https://app.zeno.finance/lending?utm_source=Blockscout",
+      "description": "Zeno Lend is a decentralized lending protocol that enables secure and efficient supplying and borrowing of crypto assets. Our platform offers transparent access to liquidity, empowering users to make informed financial decisions while maximizing their crypto potential.",
+      "site": "https://www.zeno.finance/?utm_source=Blockscout",
+      "twitter": "https://x.com/ZenoLend",
+      "telegram": null,
+      "discord": "https://discord.com/invite/8fWJJscp73",
+      "github": [
+        "https://github.com/Zeno-Finance"
+      ]
+    },
+    {
+      "id": "blockpi",
+      "title": "BlockPI",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/blockpi.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "Distributed multi-chain acceleration layer. Solving the RPC requests congestion problem with infinite scalability.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "BlockPI",
+      "url": "https://dashboard.blockpi.io/?utm_source=Blockscout",
+      "description": "Distributed multi-chain acceleration layer. Solving the RPC requests congestion problem with infinite scalability.",
+      "site": "https://blockpi.io/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/RealBlockPI",
+      "telegram": "https://t.me/blockpidaily",
+      "discord": "https://discord.gg/xTvGVrGVZv",
+      "github": []
+    },
+    {
+      "id": "chaineye",
+      "title": "Chaineye",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/chaineye.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Chaineye is committed to building free and open-source omni-chain analytical tools for Web3 users. Popular tools includes: Mini Bridge, CEX Withdraw Fee, Multi-Wallet Check, Stable Coins, and Ordinals.",
+      "categories": [
+        "Data & Analytics",
+        "Bridges",
+        "Dev toolings"
+      ],
+      "author": "Chaineye",
+      "url": "https://chaineye.tools/?utm_source=Blockscout",
+      "description": "Chaineye is committed to building free and open-source omni-chain analytical tools for Web3 users. Popular tools includes: Mini Bridge, CEX Withdraw Fee, Multi-Wallet Check, Stable Coins, and Ordinals.",
+      "site": "https://chaineye.tools/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/Chaineye_tools",
+      "telegram": "https://t.me/chaineye",
+      "discord": null,
+      "github": [
+        "https://github.com/DeFiEye/Mini-Bridge"
+      ]
+    },
+    {
+      "id": "nightly",
+      "title": "Nightly",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/nightly.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "A multichain extension and mobile wallet designed to enhance your Web3 experience, that allows you to manage your tokens and NFTs nicely and easily. It allows to send and swap tokens, and display all NFTs in one single place.",
+      "categories": [
+        "Wallets",
+        "NFTs"
+      ],
+      "author": "Nightly",
+      "url": "https://nightly.app/download?utm_source=Blockscout",
+      "description": "A multichain extension and mobile wallet designed to enhance your Web3 experience, that allows you to manage your tokens and NFTs nicely and easily. It allows to send and swap tokens, and display all NFTs in one single place.",
+      "site": "https://nightly.app/?utm_source=Blockscout",
+      "twitter": "https://x.com/Nightly_app",
+      "telegram": "https://t.me/+0GfPnsVD3IVlYTBk",
+      "discord": "https://discord.com/invite/7nhFHA6yZq",
+      "github": []
+    },
+    {
+      "id": "quicknode-faucet",
+      "title": "QuickNode Faucet",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/quicknode.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Multi-Chain Faucet to claim testnet tokens for free - one drip per network every 12 hours.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "QuickNode",
+      "url": "https://faucet.quicknode.com/drip?utm_source=Blockscout",
+      "description": "Multi-Chain Faucet to claim testnet tokens for free - one drip per network every 12 hours.",
+      "site": "https://faucet.quicknode.com/drip?utm_source=Blockscout",
+      "twitter": "https://x.com/quicknode",
+      "telegram": null,
+      "discord": "https://discord.gg/DkdgEqE",
+      "github": []
+    },
+    {
+      "id": "dynamic",
+      "title": "Dynamic",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/dynamic.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "Dynamic combines authentication, smart wallets, and secure key management into one flexible SDK. Get the most multi-chain coverage across chains and third-party wallets.",
+      "categories": [
+        "Dev toolings",
+        "Wallets"
+      ],
+      "author": "Dynamic",
+      "url": "https://demo.dynamic.xyz/?utm_source=Blockscout",
+      "description": "Dynamic combines authentication, smart wallets, and secure key management into one flexible SDK. Get the most multi-chain coverage across chains and third-party wallets.",
+      "site": "https://www.dynamic.xyz/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/dynamic_xyz",
+      "telegram": null,
+      "discord": null,
+      "github": [
+        "https://github.com/dynamic-labs"
+      ]
+    },
+    {
+      "id": "gelato",
+      "title": "Gelato",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/gelato.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "The all-in-one Ethereum Rollup as a Service Platform. Deploy production-grade & fully-serviced L2 rollups natively integrated with tools like oracles, bridges, data indexers and Account Abstraction.",
+      "categories": [
+        "Dev toolings",
+        "Bridges"
+      ],
+      "author": "Gelato",
+      "url": "https://raas.gelato.network/sign-up",
+      "description": "The all-in-one Ethereum Rollup as a Service Platform. Deploy production-grade & fully-serviced L2 rollups natively integrated with tools like oracles, bridges, data indexers and Account Abstraction.",
+      "site": "https://www.gelato.network/raas",
+      "twitter": "https://twitter.com/gelatonetwork",
+      "telegram": "https://t.me/gelatonetwork",
+      "discord": "https://discord.com/invite/ApbA39BKyJ",
+      "github": [
+        "https://github.com/gelatodigital"
+      ]
+    },
+    {
+      "id": "passdex",
+      "title": "PassDEX",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/passdex.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "PassDEX is a decentralized exchange (DEX) that bridges the gap between different blockchain ecosystems. With multichain support and a user-friendly interface, PassDEX empowers users to trade assets, provide liquidity, and earn rewards efficiently.",
+      "categories": [
+        "Swaps"
+      ],
+      "author": "PassDEX Finance",
+      "url": "https://passdex.finance/swap?chain=Soneium&utm_source=Blockscout",
+      "description": "PassDEX is a decentralized exchange (DEX) that bridges the gap between different blockchain ecosystems. With multichain support and a user-friendly interface, PassDEX empowers users to trade assets, provide liquidity, and earn rewards efficiently.",
+      "site": "https://passdex.finance/?utm_source=Blockscout",
+      "twitter": "https://x.com/PassDEX",
+      "telegram": "https://t.me/PassDEX_Group",
+      "discord": "https://discord.gg/",
+      "github": []
+    },
+    {
+      "id": "debridge",
+      "title": "deBridge",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/deBridge.png",
+      "logoDarkMode": null,
+      "shortDescription": "deBridge is the bridge that moves at lightspeed, enabling near-instant movement of value and information for over 400,000 users.",
+      "categories": [
+        "Bridges"
+      ],
+      "author": "deBridge",
+      "url": "https://app.debridge.finance/?utm_source=Blockscout",
+      "description": "deBridge is the bridge that moves at lightspeed, enabling near-instant movement of value and information for over 400,000 users.",
+      "site": "https://debridge.finance/?utm_source=Blockscout",
+      "twitter": "https://x.com/deBridgeFinance",
+      "telegram": "https://t.me/deBridge_finance",
+      "discord": "https://discord.com/invite/debridge",
+      "github": [
+        "https://github.com/debridge-finance/"
+      ]
+    },
+    {
+      "id": "hyperlane",
+      "title": "Hyperlane",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/hyperlane.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "Hyperlane is a permissionless interoperability protocol for cross-chain communication. It enables message passing and asset transfers across different chains without relying on centralized intermediaries or requiring any permissions.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "Hyperlane",
+      "url": "https://hyperlane.xyz/?utm_source=Blockscout",
+      "description": "Hyperlane is a permissionless interoperability protocol for cross-chain communication. It enables message passing and asset transfers across different chains without relying on centralized intermediaries or requiring any permissions.",
+      "site": "https://hyperlane.xyz/?utm_source=Blockscout",
+      "twitter": "https://x.com/hyperlane",
+      "telegram": null,
+      "discord": "https://discord.com/invite/VK9ZUy3aTV",
+      "github": [
+        "https://github.com/hyperlane-xyz"
+      ]
+    },
+    {
+      "id": "pimlico",
+      "title": "Pimlico",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/Pimlico.png",
+      "logoDarkMode": null,
+      "shortDescription": "Pimlico is the most advanced smart account infrastructure platform, providing ERC-4337 bundlers, paymasters, and more.",
+      "categories": [
+        "Dev toolings",
+        "Data & Analytics"
+      ],
+      "author": "Pimlico",
+      "url": "https://www.pimlico.io/?utm_source=Blockscout",
+      "description": "Pimlico is the most advanced smart account infrastructure platform, providing ERC-4337 bundlers, paymasters, and more.",
+      "site": "https://www.pimlico.io/?utm_source=Blockscout",
+      "twitter": "https://x.com/pimlicoHQ",
+      "telegram": "https://t.me/pimlicoHQ",
+      "discord": null,
+      "github": [
+        "https://github.com/pimlicolabs"
+      ]
+    },
+    {
+      "id": "aria",
+      "title": "Aria",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/aria.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Aria is the Web3 platform transforming intellectual property into digital assets. The Aria IPRWA paradigm empowers rightsholders, patrons, and investors to catalyze and multiply iconic works through crypto.",
+      "categories": [
+        "NFTs"
+      ],
+      "author": "Aria",
+      "url": "https://ariaprotocol.xyz/assets?utm_source=Blockscout",
+      "description": "Aria is the Web3 platform transforming intellectual property into digital assets. The Aria IPRWA paradigm empowers rightsholders, patrons, and investors to catalyze and multiply iconic works through crypto.",
+      "site": "https://ariaprotocol.xyz/?utm_source=Blockscout",
+      "twitter": "https://x.com/Aria_Protocol",
+      "telegram": null,
+      "discord": "https://discord.gg/ariaprotocol",
+      "github": []
+    },
+    {
+      "id": "verio",
+      "title": "Verio",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/verio.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Verio is the IP trust engine for Story Protocol. Verio enables the financial and legal governance system for Story's new IP regime. Story decentralizes IP storage, and Verio decentralizes IP governance.",
+      "categories": [
+        "Liquid staking"
+      ],
+      "author": "Verio",
+      "url": "https://www.verio.network/staking?utm_source=Blockscout",
+      "description": "Verio is the IP trust engine for Story Protocol. Verio enables the financial and legal governance system for Story's new IP regime. Story decentralizes IP storage, and Verio decentralizes IP governance.",
+      "site": "https://www.verio.network/?utm_source=Blockscout",
+      "twitter": "https://x.com/verio_story",
+      "telegram": null,
+      "discord": "https://discord.com/invite/verio",
+      "github": []
+    },
+    {
+      "id": "unleash-protocol",
+      "title": "Unleash Protocol",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/unleash-protocol.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "The Leading IP Launchpad and Money Market on STORY.",
+      "categories": [
+        "NFTs"
+      ],
+      "author": "Unleash Protocol",
+      "url": "https://app.unleashprotocol.xyz/?utm_source=Blockscout",
+      "description": "The Leading IP Launchpad and Money Market on STORY.",
+      "site": "https://unleashprotocol.xyz/?utm_source=Blockscout",
+      "twitter": "https://x.com/UnleashProtocol",
+      "telegram": "http://t.me/unleashprotocol",
+      "discord": "https://discord.com/invite/unleashprotocol",
+      "github": [
+        "https://github.com/unleash-protocol"
+      ]
+    },
+    {
+      "id": "piperx",
+      "title": "PiperX",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/piperx.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Swap Intelligence. First and largest Native DEX backed by Story protocol and the ultimate DeFAI infrastructure.",
+      "categories": [
+        "Swaps"
+      ],
+      "author": "PiperX",
+      "url": "https://app.piperx.xyz/#/swap?utm_source=Blockscout",
+      "description": "Swap Intelligence. First and largest Native DEX backed by Story protocol and the ultimate DeFAI infrastructure.",
+      "site": "https://www.piperx.xyz/?utm_source=Blockscout",
+      "twitter": "https://x.com/piperxprotocol",
+      "telegram": "https://t.me/+skjXFbkXs_E0Njcx",
+      "discord": "https://discord.com/invite/M2pbcwYSHv",
+      "github": []
+    },
+    {
+      "id": "ip.world",
+      "title": "ip.world",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/ip.world.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "ip.world turns your favorite memes and icons into memecoins backed by real IP.",
+      "categories": [
+        "NFTs",
+        "Social"
+      ],
+      "author": "ip.world",
+      "url": "https://ip.world/explore?utm_source=Blockscout",
+      "description": "ip.world turns your favorite memes and icons into memecoins backed by real IP.",
+      "site": "https://ip.world/explore?utm_source=Blockscout",
+      "twitter": "https://x.com/ipdotworld",
+      "telegram": null,
+      "discord": "https://discord.com/invite/ipworld",
+      "github": []
+    },
+    {
+      "id": "crossmint",
+      "title": "Crossmint",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/crossmint.png",
+      "logoDarkMode": null,
+      "shortDescription": "Enterprise-grade platform for integrating blockchain assets into applications: embed wallets, mint, payments, and more.",
+      "categories": [
+        "Wallets",
+        "NFTs"
+      ],
+      "author": "Crossmint",
+      "url": "https://www.crossmint.com/user?utm_source=Blockscout",
+      "description": "Enterprise-grade platform for integrating blockchain assets into applications: embed wallets, mint, payments, and more.",
+      "site": "https://www.crossmint.com/?utm_source=Blockscout",
+      "twitter": "https://x.com/crossmint",
+      "telegram": null,
+      "discord": "https://t.co/vrHPxVppVu",
+      "github": [
+        "https://github.com/crossmint"
+      ]
+    },
+    {
+      "id": "simplehash",
+      "title": "SimpleHash",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/simplehash.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "SimpleHash is a platform that provides access to Token balances, DEX prices, and transfers, along with NFT metadata, media, collection details, sales, floor prices, listings and bids across multiple chains.",
+      "categories": [
+        "Data & Analytics",
+        "NFTs"
+      ],
+      "author": "SimpleHash",
+      "url": "https://simplehash.com/?utm_source=Blockscout",
+      "description": "SimpleHash is a platform that provides access to Token balances, DEX prices, and transfers, along with NFT metadata, media, collection details, sales, floor prices, listings and bids across multiple chains.",
+      "site": "https://simplehash.com/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/SimpleHashInc",
+      "telegram": "https://t.me/+3oWdnBbfplJmOWNh",
+      "discord": null,
+      "github": []
+    },
+    {
+      "id": "mahojin",
+      "title": "Mahojin",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/mahojin.png",
+      "logoDarkMode": null,
+      "shortDescription": "Mahojin is a search-to-generate AI platform that instantly provides exact images through an ever-expanding and remixable library.",
+      "categories": [
+        "NFTs",
+        "Dev toolings"
+      ],
+      "author": "Mahojin",
+      "url": "https://app.mahojin.ai/images?utm_source=Blockscout",
+      "description": "Mahojin is a search-to-generate AI platform that instantly provides exact images through an ever-expanding and remixable library.",
+      "site": "https://www.mahojin.ai/?utm_source=Blockscout",
+      "twitter": "https://x.com/mahojinAI",
+      "telegram": null,
+      "discord": null,
+      "github": []
+    },
+    {
+      "id": "ankr-staking",
+      "title": "Ankr Staking",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/ankr.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Liquid, secure, and easy to integrate staking infrastructure.",
+      "categories": [
+        "Liquid staking"
+      ],
+      "author": "Ankr Staking",
+      "url": "https://www.ankr.com/staking/dashboard/?utm_source=Blockscout",
+      "description": "Liquid, secure, and easy to integrate staking infrastructure.",
+      "site": "https://www.ankr.com/staking/dashboard/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/ankrstaking",
+      "telegram": null,
+      "discord": "https://discord.gg/GGzJ6A6fEg",
+      "github": [
+        "https://github.com/Ankr-network"
+      ]
+    },
+    {
+      "id": "str8fire",
+      "title": "STR8FIRE",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/str8fire.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "STR8FIRE is Tokenizing Hollywood-level Entertainment IP Real World Assets.",
+      "categories": [
+        "NFTs"
+      ],
+      "author": "STR8FIRE",
+      "url": "https://www.str8fire.io/ips?utm_source=Blockscout",
+      "description": "STR8FIRE is Tokenizing Hollywood-level Entertainment IP Real World Assets.",
+      "site": "https://www.str8fire.io/?utm_source=Blockscout",
+      "twitter": "https://x.com/STR8FIRE_io",
+      "telegram": "https://t.me/STR8FIRE_community",
+      "discord": "https://discord.gg/str8fire",
+      "github": []
+    },
+    {
+      "id": "ablo",
+      "title": "ABLO",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/ablo.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Create. Collaborate. Earn. Design with AI, partner with leading brands, and monetize your creativity on Web3. Start Designing",
+      "categories": [
+        "NFTs"
+      ],
+      "author": "Space Runners",
+      "url": "https://ablo.ai/?utm_source=Blockscout",
+      "description": "Create. Collaborate. Earn. Design with AI, partner with leading brands, and monetize your creativity on Web3. Start Designing",
+      "site": "https://ablo.ai/?utm_source=Blockscout",
+      "twitter": "https://x.com/ABLO_Official",
+      "telegram": null,
+      "discord": null,
+      "github": []
+    },
+    {
+      "id": "blockbook",
+      "title": "BlockBook",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/blockbook.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Earn from your content and the value it brings to AI, brands, influential creators, and their original works.",
+      "categories": [
+        "NFTs"
+      ],
+      "author": "BlockBook",
+      "url": "https://www.blockbook.app/discover?utm_source=Blockscout",
+      "description": "Earn from your content and the value it brings to AI, brands, influential creators, and their original works.",
+      "site": "https://www.blockbook.app/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/TheBlockBookapp",
+      "telegram": null,
+      "discord": "https://discord.com/invite/NmSHRRsUGz",
+      "github": []
+    },
+    {
+      "id": "tomo",
+      "title": "Tomo",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/tomo.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Tomo is here to revolutionize this experience by providing a streamlined, secure, and user-friendly Web3 wallet solution. We provide an all-in-one Web3 social wallet designed to bring the mass adoption of crypto while using the highest standard for our user's asset security.",
+      "categories": [
+        "Wallets"
+      ],
+      "author": "Tomo",
+      "url": "https://tomo.inc/?utm_source=Blockscout",
+      "description": "Tomo is here to revolutionize this experience by providing a streamlined, secure, and user-friendly Web3 wallet solution. We provide an all-in-one Web3 social wallet designed to bring the mass adoption of crypto while using the highest standard for our user's asset security.",
+      "site": "https://tomo.inc/?utm_source=Blockscout",
+      "twitter": "https://x.com/tomo_wallet",
+      "telegram": "https://t.me/tomoinc",
+      "discord": null,
+      "github": [
+        "https://github.com/UnyxTech"
+      ]
+    },
+    {
+      "id": "punkgame",
+      "title": "PunkgaMe",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/punkgame.png",
+      "logoDarkMode": null,
+      "shortDescription": "A Unique Product That Combines Web3 Manga and Community. Explore now. Decoration. On-chain Manga & Character as NFT. New Revenue Model through License & Remix.",
+      "categories": [
+        "NFTs",
+        "Social"
+      ],
+      "author": "PunkgaMe",
+      "url": "https://app.punkga.me/?utm_source=Blockscout",
+      "description": "A Unique Product That Combines Web3 Manga and Community. Explore now. Decoration. On-chain Manga & Character as NFT. New Revenue Model through License & Remix.",
+      "site": "https://punkga.me/?utm_source=Blockscout",
+      "twitter": "https://x.com/PunkgaMeManga",
+      "telegram": null,
+      "discord": "https://discord.com/invite/YcuFcr8gTy",
+      "github": []
+    },
+    {
+      "id": "mycelium-network",
+      "title": "Mycelium Network",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/mycelium-network.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Remix platform to make your mascot on-chain famous! Explore, create, and remix at your fingertips.",
+      "categories": [
+        "Social",
+        "NFTs"
+      ],
+      "author": "Mycelium Network",
+      "url": "https://myceliumnetwork.io/?utm_source=Blockscout",
+      "description": "Remix platform to make your mascot on-chain famous! Explore, create, and remix at your fingertips.",
+      "site": "https://myceliumnetwork.io/?utm_source=Blockscout",
+      "twitter": "https://x.com/mycelium_io",
+      "telegram": "http://t.me/mycelium_io",
+      "discord": "https://discord.com/invite/myceliumnetwork",
+      "github": []
+    },
+    {
+      "id": "nodefleet",
+      "title": "Nodefleet",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/nodefleet.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Web3 node running, infrastructure and blockchain development company focused on delivering high performance and truly descentralized infrastructure on bare metal machines across different providers and regions.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "Nodefleet",
+      "url": "https://nodefleet.org/?utm_source=Blockscout",
+      "description": "Web3 node running, infrastructure and blockchain development company focused on delivering high performance and truly descentralized infrastructure on bare metal machines across different providers and regions.",
+      "site": "https://nodefleet.org/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/nodefleet",
+      "telegram": "https://t.me/nodefleet",
+      "discord": null,
+      "github": [
+        "https://github.com/nodefleet"
+      ]
+    },
+    {
+      "id": "superboard",
+      "title": "Superboard",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/superboard.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Your easiest way for users to discover new opportunities in Web3.",
+      "categories": [
+        "Social",
+        "Games"
+      ],
+      "author": "Superboard",
+      "url": "https://superboard.xyz/quests?utm_source=Blockscout",
+      "description": "Your easiest way for users to discover new opportunities in Web3.",
+      "site": "https://superboard.xyz/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/Superboard_",
+      "telegram": null,
+      "discord": "https://discord.gg/EynyJTjzkV",
+      "github": []
+    },
+    {
+      "id": "router-nitro",
+      "title": "Router Nitro",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/router-nitro.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Router Nitro is a cross-chain bridge designed to facilitate the seamless transfer of assets across different blockchain networks. It ensures efficient and secure transactions, promoting greater interoperability in the blockchain ecosystem.",
+      "categories": [
+        "Bridges"
+      ],
+      "author": "Router",
+      "url": "https://app.routernitro.com/swap?utm_source=Blockscout",
+      "description": "Router Nitro is a cross-chain bridge designed to facilitate the seamless transfer of assets across different blockchain networks. It ensures efficient and secure transactions, promoting greater interoperability in the blockchain ecosystem.",
+      "site": "https://nitro.routerprotocol.com/?utm_source=Blockscout",
+      "twitter": "https://x.com/routerprotocol",
+      "telegram": "https://t.me/routerprotocol",
+      "discord": null,
+      "github": [
+        "https://github.com/router-protocol"
+      ]
+    },
+    {
+      "id": "zettablock",
+      "title": "ZettaBlock",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/zettablock.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "A unified platform for open and trustfree AI development, empowering an accessible ecosystem of models and datasets.",
+      "categories": [
+        "Data & Analytics"
+      ],
+      "author": "ZettaBlock Labs",
+      "url": "https://app.zettablock.com/?utm_source=Blockscout",
+      "description": "A unified platform for open and trustfree AI development, empowering an accessible ecosystem of models and datasets.",
+      "site": "https://zettablock.com/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/ZettaBlockHQ",
+      "telegram": null,
+      "discord": "https://discord.gg/zettablock",
+      "github": [
+        "https://github.com/Zettablock"
+      ]
+    },
+    {
+      "id": "protofire",
+      "title": "Protofire",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/protofire.png",
+      "logoDarkMode": null,
+      "shortDescription": "Expert blockchain solutions for L1/L2 chains and DeFi protocols. Strategic planning and deployment to enhance TVL and usage of Web3 projects.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "Protofire",
+      "url": "https://protofire.io/?utm_source=Blockscout",
+      "description": "Expert blockchain solutions for L1/L2 chains and DeFi protocols. Strategic planning and deployment to enhance TVL and usage of Web3 projects.",
+      "site": "https://protofire.io/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/protofire",
+      "telegram": null,
+      "discord": "https://discord.gg/y5TE8TcPGn",
+      "github": [
+        "https://github.com/protofire"
+      ]
+    },
+    {
+      "id": "halliday",
+      "title": "Halliday",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/halliday.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Halliday is the first workflow protocol. Automate any workflow and manage reliability, cross-chain execution, business logic and more. Create breakthrough applications in hours not years.",
+      "categories": [
+        "Dev toolings",
+        "Payments"
+      ],
+      "author": "Halliday",
+      "url": "https://halliday.xyz/?utm_source=Blockscout",
+      "description": "Halliday is the first workflow protocol. Automate any workflow and manage reliability, cross-chain execution, business logic and more. Create breakthrough applications in hours not years.",
+      "site": "https://halliday.xyz/?utm_source=Blockscout",
+      "twitter": "https://x.com/HallidayHQ",
+      "telegram": null,
+      "discord": null,
+      "github": []
+    },
+    {
+      "id": "blockdaemon",
+      "title": "Blockdaemon",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/blockdaemon.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Your Gateway to the Decentralized Economy. The complete institutional solution for seamless, secure, and efficient Web3 services.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "Blockdaemon",
+      "url": "https://www.blockdaemon.com/?utm_source=Blockscout",
+      "description": "Your Gateway to the Decentralized Economy. The complete institutional solution for seamless, secure, and efficient Web3 services.",
+      "site": "https://www.blockdaemon.com/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/BlockdaemonHQ",
+      "telegram": null,
+      "discord": null,
+      "github": [
+        "https://github.com/Blockdaemon"
+      ]
+    },
+    {
+      "id": "uma",
+      "title": "UMA",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/uma.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "UMA' s optimistic oracle (OO) can record any verifiable truth or data onto a blockchain.",
+      "categories": [
+        "Data & Analytics"
+      ],
+      "author": "UMA",
+      "url": "https://vote.uma.xyz?utm_source=Blockscout",
+      "description": "UMA' s optimistic oracle (OO) can record any verifiable truth or data onto a blockchain.",
+      "site": "https://uma.xyz/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/UMAprotocol",
+      "telegram": null,
+      "discord": "http://discord.uma.xyz/",
+      "github": [
+        "https://github.com/UMAprotocol"
+      ]
+    },
+    {
+      "id": "storyhunt",
+      "title": "StoryHunt",
+      "external": false,
+      "internalWallet": true,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/storyhunt.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "StoryHunt is the biggest Story-native DEX, incubated by Story Foundation, dedicated to revolutionizing IPFi—where intellectual property (IP) meets DeFi—and bringing real world IP assets onchain and blockchain assets backed by IP.",
+      "categories": [
+        "Swaps"
+      ],
+      "author": "StoryHunt",
+      "url": "https://app.storyhunt.xyz/?utm_source=Blockscout",
+      "description": "StoryHunt is the biggest Story-native DEX, incubated by Story Foundation, dedicated to revolutionizing IPFi—where intellectual property (IP) meets DeFi—and bringing real world IP assets onchain and blockchain assets backed by IP.",
+      "site": "https://www.storyhunt.xyz/?utm_source=Blockscout",
+      "twitter": "https://x.com/0xStoryHunt",
+      "telegram": "https://t.me/Storyhunt_IP",
+      "discord": "https://discord.gg/mMFjjrKqAn",
+      "github": []
+    },
+    {
+      "id": "relay",
+      "title": "relay",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/relay.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "Instant, low-cost bridging. Relay Protocol is a cross-chain payments system that connects users to relayers willing to perform on-chain actions on their behalf.",
+      "categories": [
+        "Bridges",
+        "Payments"
+      ],
+      "author": "Relay",
+      "url": "https://relay.link/bridge/Base/?utm_source=blockscout",
+      "description": "Instant, low-cost bridging. Relay Protocol is a cross-chain payments system that connects users to relayers willing to perform on-chain actions on their behalf.",
+      "site": "https://relay.link/?utm_source=blockscout",
+      "twitter": "https://twitter.com/RelayProtocol",
+      "telegram": null,
+      "discord": null,
+      "github": []
+    },
+    {
+      "id": "rhino.fi",
+      "title": "rhino.fi",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/rhino.fi.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "rhino.fi is the multichain DeFi aggregator that helps you effortlessly explore the best opportunities at the click of a button. Trade. Swap. Invest. Earn. Bridge. All from your Layer 2 wallet",
+      "categories": [
+        "Swaps",
+        "Bridges"
+      ],
+      "author": "rhino.fi",
+      "url": "https://app.rhino.fi/bridge?utm_source=Blockscout",
+      "description": "rhino.fi is the multichain DeFi aggregator that helps you effortlessly explore the best opportunities at the click of a button. Trade. Swap. Invest. Earn. Bridge. All from your Layer 2 wallet",
+      "site": "https://rhino.fi/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/rhinofi",
+      "telegram": "https://t.me/rhinofiannouncements",
+      "discord": "https://t.co/znuRXoaxIj",
+      "github": []
+    },
+    {
+      "id": "coingecko",
+      "title": "CoinGecko",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/coingecko.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "CoinGecko provides a fundamental analysis of the crypto market. In addition to tracking price, volume and market capitalisation, CoinGecko tracks community growth, open-source code development, major events and on-chain metrics.",
+      "categories": [
+        "Data & Analytics"
+      ],
+      "author": "CoinGecko",
+      "url": "https://www.coingecko.com/?utm_source=Blockscout",
+      "description": "CoinGecko provides a fundamental analysis of the crypto market. In addition to tracking price, volume and market capitalisation, CoinGecko tracks community growth, open-source code development, major events and on-chain metrics.",
+      "site": "https://www.coingecko.com/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/coingecko",
+      "telegram": "https://t.me/coingecko",
+      "discord": "https://discord.gg/EhrkaCH",
+      "github": [
+        "https://github.com/coingecko"
+      ]
+    },
+    {
+      "id": "goldsky",
+      "title": "Goldsky",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/goldsky.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "Goldsky is the go-to data indexer for web3 builders, offering high-performance subgraph hosting and realtime data replication pipelines.",
+      "categories": [
+        "Data & Analytics"
+      ],
+      "author": "Goldsky",
+      "url": "https://app.goldsky.com/?utm_source=Blockscout",
+      "description": "Goldsky is the go-to data indexer for web3 builders, offering high-performance subgraph hosting and realtime data replication pipelines.",
+      "site": "https://goldsky.com/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/goldskyio",
+      "telegram": null,
+      "discord": null,
+      "github": [
+        "https://github.com/goldsky-io"
+      ]
+    },
+    {
+      "id": "revokescout",
+      "title": "Revokescout",
+      "external": false,
+      "internalWallet": true,
+      "priority": 9,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/revokescout.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Revokescout is a tool to help you manage your blockchain approvals",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "Blockscout",
+      "url": "https://revoke.blockscout.com/?utm_source=Blockscout",
+      "description": "Revokescout is a tool to help you manage your blockchain approvals",
+      "site": "https://revoke.blockscout.com/?utm_source=Blockscout",
+      "twitter": "https://x.com/blockscout",
+      "telegram": "https://t.me/blockscoutnews",
+      "discord": "https://discord.gg/blockscout",
+      "github": [
+        "https://github.com/blockscout"
+      ]
+    },
+    {
+      "id": "redstone",
+      "title": "RedStone",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/redstone.png",
+      "logoDarkMode": null,
+      "shortDescription": "Modular oracles for DeFi. RedStone's modular architecture scales as easily as your protocol. RedStone is live on 60+ chains and can be easily deployed on any EVM and many non-EVM chains.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "RedStone",
+      "url": "https://app.redstone.finance/app/tokens/?utm_source=Blockscout",
+      "description": "Modular oracles for DeFi. RedStone's modular architecture scales as easily as your protocol. RedStone is live on 60+ chains and can be easily deployed on any EVM and many non-EVM chains.",
+      "site": "https://www.redstone.finance/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/redstone_defi",
+      "telegram": null,
+      "discord": "https://discord.com/invite/PVxBZKFr46",
+      "github": [
+        "https://github.com/redstone-finance"
+      ]
+    },
+    {
+      "id": "zerodev",
+      "title": "ZeroDev",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/zerodev.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "ZeroDev is the most powerful toolkit for building with smart accounts, including both “smart EOAs” (EIP-7702) and “smart contract accounts” (ERC-4337).",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "ZeroDev",
+      "url": "https://dashboard.zerodev.app/?utm_source=Blockscout",
+      "description": "ZeroDev is the most powerful toolkit for building with smart accounts, including both “smart EOAs” (EIP-7702) and “smart contract accounts” (ERC-4337).",
+      "site": "https://zerodev.app/?utm_source=Blockscout",
+      "twitter": "https://x.com/zerodev_app",
+      "telegram": "https://t.me/derek_chiang",
+      "discord": "https://discord.gg/KS9MRaTSjx",
+      "github": [
+        "https://github.com/zerodevapp"
+      ]
+    },
+    {
+      "id": "quicknode",
+      "title": "QuickNode",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/quicknode.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "The most powerful onchain development platform. Build with industry-leading solutions on the world's fastest, most reliable infrastructure.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "QuickNode",
+      "url": "https://www.quicknode.com/signup?utm_source=Blockscout",
+      "description": "The most powerful onchain development platform. Build with industry-leading solutions on the world's fastest, most reliable infrastructure.",
+      "site": "https://www.quicknode.com/?utm_source=Blockscout",
+      "twitter": "https://x.com/quicknode",
+      "telegram": null,
+      "discord": "https://discord.gg/quicknode",
+      "github": []
+    },
+    {
+      "id": "pyth-network",
+      "title": "Pyth Network",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/pyth-network.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "Blockchain oracle for market data. Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
+      "categories": [
+        "Data & Analytics",
+        "Dev toolings"
+      ],
+      "author": "Pyth Network",
+      "url": "https://staking.pyth.network/?utm_source=Blockscout",
+      "description": "Blockchain oracle for market data. Secure your smart contracts with reliable, low-latency market data from institutional sources. Build apps with high-fidelity oracle feeds designed for mission-critical systems.",
+      "site": "https://www.pyth.network/?utm_source=Blockscout",
+      "twitter": "https://x.com/PythNetwork",
+      "telegram": "https://t.me/Pyth_Network",
+      "discord": "https://discord.gg/invite/PythNetwork",
+      "github": [
+        "https://github.com/pyth-network"
+      ]
+    },
+    {
+      "id": "stargate",
+      "title": "Stargate",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/stargate.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Stargate is a fully composable liquidity transport protocol that lives at the heart of Omnichain DeFi",
+      "categories": [
+        "Bridges"
+      ],
+      "author": "Stargate",
+      "url": "https://stargate.finance/bridge?utm_source=Blockscout",
+      "description": "Stargate is a fully composable liquidity transport protocol that lives at the heart of Omnichain DeFi. With Stargate, users & dApps can transfer native assets cross-chain while accessing the protocol’s unified liquidity pools with instant guaranteed finality.",
+      "site": "https://stargate.finance/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/StargateFinance",
+      "telegram": null,
+      "discord": null,
+      "github": [
+        "https://github.com/stargate-protocol"
+      ]
+    },
+    {
+      "id": "transak",
+      "title": "Transak",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/transak.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Enable users to buy or sell crypto from your app. Available across 170 cryptocurrencies on 80+ blockchains via cards, bank transfers and other payment methods in 162 countries.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "Transak",
+      "url": "https://transak.com/?utm_source=Blockscout",
+      "description": "Enable users to buy or sell crypto from your app. Available across 170 cryptocurrencies on 80+ blockchains via cards, bank transfers and other payment methods in 162 countries.",
+      "site": "https://transak.com/?utm_source=Blockscout",
+      "twitter": "https://x.com/transak",
+      "telegram": "https://t.me/transakfinance",
+      "discord": null,
+      "github": []
+    },
+    {
+      "id": "privy",
+      "title": "Privy",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/privy.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "Privy is a powerful authentication and key management platform to securely onboard, activate, and manage your users at scale.",
+      "categories": [
+        "Dev toolings",
+        "Data & Analytics",
+        "Wallets"
+      ],
+      "author": "Privy",
+      "url": "https://dashboard.privy.io/?utm_source=Blockscout",
+      "description": "Privy is a powerful authentication and key management platform to securely onboard, activate, and manage your users at scale.",
+      "site": "https://www.privy.io/?utm_source=Blockscout",
+      "twitter": "https://x.com/privy_io",
+      "telegram": null,
+      "discord": null,
+      "github": [
+        "https://github.com/privy-io"
+      ]
+    },
+    {
+      "id": "jokerace",
+      "title": "JokeRace",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/jokerace.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "Contests for communities to run, grow, and monetize.",
+      "categories": [
+        "Games",
+        "Social"
+      ],
+      "author": "JokeRace",
+      "url": "https://www.jokerace.io/?utm_source=Blockscout",
+      "description": "Contests for communities to run, grow, and monetize.",
+      "site": "https://www.jokerace.io/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/jokerace_io",
+      "telegram": "https://t.me/+rW5X0MqnTXBkOGIx",
+      "discord": null,
+      "github": [
+        "https://github.com/jk-labs-inc/jokerace"
+      ]
+    },
+    {
+      "id": "thirdweb",
+      "title": "thirdweb",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/thirdweb.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "The fastest way tobuild web3 apps. SDKs in every language, smart contracts, tools, and infrastructure for web3 development",
+      "categories": [
+        "Data & Analytics",
+        "Dev toolings"
+      ],
+      "author": "thirdweb",
+      "url": "https://thirdweb.com/dashboard?utm_source=Blockscout",
+      "description": "The fastest way tobuild web3 apps. SDKs in every language, smart contracts, tools, and infrastructure for web3 development",
+      "site": "https://thirdweb.com/?utm_source=Blockscout",
+      "twitter": "https://x.com/thirdweb",
+      "telegram": null,
+      "discord": "https://discord.gg/thirdweb",
+      "github": [
+        "https://github.com/thirdweb-dev"
+      ]
+    },
+    {
+      "id": "token-factory",
+      "title": "Token Factory",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/token-factory.png",
+      "logoDarkMode": null,
+      "shortDescription": "Deploy ERC20 tokens on multiple blockchains with just a few clicks. Fast, secure, and decentralized.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "Token Factory",
+      "url": "https://scfactory.xyz/?utm_source=Blockscout",
+      "description": "Deploy ERC20 tokens on multiple blockchains with just a few clicks. Fast, secure, and decentralized.",
+      "site": "https://scfactory.xyz/?utm_source=Blockscout",
+      "twitter": "https://x.com/0xtokenfactory",
+      "telegram": null,
+      "discord": null,
+      "github": [
+        "https://github.com/furidngrt/TokenFactory"
+      ]
+    },
+    {
+      "id": "defillama",
+      "title": "DeFiLlama",
+      "external": false,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/defillama.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "DefiLlama is the largest TVL aggregator for DeFi (Decentralized Finance). The data is fully open-source and maintained by a team of passionate individuals and contributors from hundreds of protocols.",
+      "categories": [
+        "Data & Analytics"
+      ],
+      "author": "DeFiLlama",
+      "url": "https://defillama.com/?utm_source=Blockscout",
+      "description": "DefiLlama is the largest TVL aggregator for DeFi (Decentralized Finance). The data is fully open-source and maintained by a team of passionate individuals and contributors from hundreds of protocols.",
+      "site": "https://defillama.com/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/DefiLlama",
+      "telegram": null,
+      "discord": "https://discord.defillama.com/",
+      "github": []
+    },
+    {
+      "id": "conft",
+      "title": "coNFT",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/conft.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "NFT aggregator,Web3 Name Service, Launchpad, and Bridge.",
+      "categories": [
+        "NFTs"
+      ],
+      "author": "CoLabs",
+      "url": "https://conft.app/?utm_source=Blockscout",
+      "description": "NFT aggregator,Web3 Name Service, Launchpad, and Bridge.",
+      "site": "https://conft.app/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/ConftApp",
+      "telegram": "https://t.me/co_nft",
+      "discord": "https://discord.gg/FU8MNfMRv8",
+      "github": []
+    },
+    {
+      "id": "layerzero",
+      "title": "LayerZero",
+      "external": true,
+      "internalWallet": false,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.amazonaws.com/layerzero.jpeg",
+      "logoDarkMode": null,
+      "shortDescription": "LayerZero is a technology that enables applications to move data across blockchains, uniquely supporting censorship-resistant messages and permissionless development through immutable smart contracts.",
+      "categories": [
+        "Dev toolings"
+      ],
+      "author": "LayerZero",
+      "url": "https://layerzero.network/?utm_source=Blockscout",
+      "description": "LayerZero is a technology that enables applications to move data across blockchains, uniquely supporting censorship-resistant messages and permissionless development through immutable smart contracts.",
+      "site": "https://layerzero.network/?utm_source=Blockscout",
+      "twitter": "https://x.com/layerzero_core",
+      "telegram": "https://t.me/joinchat/VcqxYkStIDsyN2Rh",
+      "discord": "https://discord.gg/ktbvm8Nkcr",
+      "github": [
+        "https://github.com/LayerZero-Labs/LayerZero-v2"
+      ]
+    },
+    {
+      "id": "onchaingm",
+      "title": "OnChainGM",
+      "external": false,
+      "internalWallet": true,
+      "priority": null,
+      "logo": "https://blockscout-content.s3.us-east-1.amazonaws.com/onchaingm.jpg",
+      "logoDarkMode": null,
+      "shortDescription": "ONCHAINGM is the premier platform for sending your daily GM greetings across multiple blockchains. Join thousands of users in this daily Web3 ritual.",
+      "categories": [
+        "Social"
+      ],
+      "author": "OnChainGM",
+      "url": "https://onchaingm.com/?utm_source=Blockscout",
+      "description": "ONCHAINGM is the premier platform for sending your daily GM greetings across multiple blockchains. Join thousands of users in this daily Web3 ritual.",
+      "site": "https://onchaingm.com/?utm_source=Blockscout",
+      "twitter": "https://twitter.com/onchainGM",
+      "telegram": null,
+      "discord": "https://discord.gg/PbNTehhPWb",
+      "github": []
+    }
+  ]

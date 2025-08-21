@@ -40,7 +40,7 @@ export class DappRepository {
   /**
    * Get or create a dApp by slug
    */
-  async getOrCreateDapp(slug: string, name: string): Promise<number> {
+  async getOrCreateDapp(slug: string, title: string): Promise<number> {
     try {
       // Try to get existing dApp
       const existingDapp = await getDappBySlug(slug);
@@ -49,8 +49,13 @@ export class DappRepository {
         return existingDapp.id;
       }
 
-      // Create new dApp
-      const dappId = await createDapp(slug, name);
+      // Create new dApp with minimal data
+      const dappId = await createDapp({
+        slug,
+        title,
+        external: false,
+        internal_wallet: false
+      });
       console.log(`Created new dApp: ${slug} (ID: ${dappId})`);
       return dappId;
     } catch (error) {

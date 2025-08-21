@@ -2,16 +2,16 @@ import * as cron from 'node-cron';
 import { ingestionConfig } from '../config/env';
 import { ingestMultipleDapps } from './ingest';
 
-// Default dApps to track
+// Default dApps to track (these will be overridden by database data)
 const DEFAULT_DAPPS = [
-  { slug: 'story-hunt', name: 'Story Hunt' },
-  { slug: 'verio', name: 'Verio' },
-  { slug: 'meta-pool', name: 'Meta Pool' },
+  { slug: 'storyhunt', title: 'StoryHunt' },
+  { slug: 'verio', title: 'Verio' },
+  { slug: 'piperx', title: 'PiperX' },
   // Add more dApps as needed
 ];
 
 export interface SchedulerConfig {
-  dapps?: Array<{ slug: string; name: string }>;
+  dapps?: Array<{ slug: string; title: string }>;
   cronExpression?: string;
   enabled?: boolean;
 }
