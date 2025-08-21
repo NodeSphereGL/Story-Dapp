@@ -1,4 +1,4 @@
-import cron from 'node-cron';
+import * as cron from 'node-cron';
 import { ingestionConfig } from '../config/env';
 import { ingestMultipleDapps } from './ingest';
 
@@ -51,10 +51,9 @@ export class IngestionScheduler {
     console.log(`📱 Tracking ${this.config.dapps!.length} dApps`);
 
     // Create cron job
-    this.cronJob = cron.schedule(this.config.cronExpression, async () => {
+    this.cronJob = cron.schedule(this.config.cronExpression!, async () => {
       await this.runScheduledIngestion();
     }, {
-      scheduled: true,
       timezone: 'UTC'
     });
 

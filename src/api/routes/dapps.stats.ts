@@ -35,8 +35,8 @@ interface DappStatsResponse {
     change_30d: number;
     change_type: 'positive' | 'negative' | 'neutral';
   };
-  sparkline_data?: number[];
-  sparkline_trend?: 'up' | 'down' | 'stable';
+  sparkline_data: number[] | undefined;
+  sparkline_trend: 'up' | 'down' | 'stable' | undefined;
   last_updated: string;
 }
 
@@ -155,7 +155,6 @@ export async function getDappStats(req: Request, res: Response): Promise<void> {
               previous?.tx_count || 0
             ).value,
             change_7d: 0,   // TODO: Implement 7d change calculation
-            change_7d: 0,   // TODO: Implement 7d change calculation
             change_30d: 0,  // TODO: Implement 30d change calculation
             change_type: createChangeData(
               current?.tx_count || 0,
@@ -192,11 +191,11 @@ export async function getDappStats(req: Request, res: Response): Promise<void> {
 export async function getDappStatsGet(req: Request, res: Response): Promise<void> {
   // Convert query parameters to body format for validation
   const body = {
-    timeframe: req.query.timeframe as Timeframe,
-    dapp_names: Array.isArray(req.query.dapp_names) 
-      ? req.query.dapp_names 
-      : [req.query.dapp_names as string],
-    include_sparklines: req.query.include_sparklines === 'true'
+    timeframe: req.query['timeframe'] as Timeframe,
+    dapp_names: Array.isArray(req.query['dapp_names']) 
+      ? req.query['dapp_names'] 
+      : [req.query['dapp_names'] as string],
+    include_sparklines: req.query['include_sparklines'] === 'true'
   };
   
   // Set body and call the main handler

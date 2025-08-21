@@ -24,7 +24,7 @@ export function createServer(): express.Application {
 
   // CORS configuration
   app.use(cors({
-    origin: process.env.NODE_ENV === 'production' 
+    origin: process.env['NODE_ENV'] === 'production' 
       ? ['https://yourdomain.com'] // Update with your domain
       : true,
     credentials: true,

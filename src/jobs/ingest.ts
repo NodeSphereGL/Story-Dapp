@@ -6,7 +6,7 @@ import { ingestionConfig } from '../config/env';
 export interface IngestionJobConfig {
   dappSlug: string;
   dappName: string;
-  hoursBack?: number;
+  hoursBack: number | undefined;
 }
 
 export interface IngestionJobResult {
@@ -27,8 +27,8 @@ export class IngestionJob {
 
   constructor(config: IngestionJobConfig) {
     this.config = {
-      hoursBack: ingestionConfig.hoursBack,
-      ...config
+      ...config,
+      hoursBack: config.hoursBack ?? ingestionConfig.hoursBack
     };
   }
 
@@ -147,11 +147,15 @@ export class IngestionJob {
 
 // Export convenience functions
 export async function ingestDapp(slug: string, name: string, hoursBack?: number): Promise<IngestionJobResult> {
-  const job = new IngestionJob({ dappSlug: slug, dappName: name, hoursBack });
+  const job = new IngestionJob({ dappSlug: slug, dappName: name, hoursBack: hoursBack || undefined });
   return job.execute();
 }
 
 export async function ingestMultipleDapps(dapps: Array<{ slug: string; name: string }>): Promise<IngestionJobResult[]> {
-  const configs = dapps.map(dapp => ({ dappSlug: dapp.slug, dappName: dapp.name }));
+  const configs = dapps.map(dapp => ({ 
+    dappSlug: dapp.slug, 
+    dappName: dapp.name,
+    hoursBack: undefined 
+  }));
   return IngestionJob.executeMultiple(configs);
 }

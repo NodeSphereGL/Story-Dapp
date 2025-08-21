@@ -5,8 +5,7 @@ import { dbConfig } from '../config/env';
 export const pool = mysql.createPool({
   uri: dbConfig.url,
   connectionLimit: 10,
-  acquireTimeout: 60000,
-  timeout: 60000,
+  connectTimeout: 60000,
   charset: 'utf8mb4',
   timezone: 'Z',
   supportBigNumbers: true,
