@@ -1,0 +1,2 @@
+# This file ensures the db/init directory is tracked in git
+# The directory contains MySQL initialization scripts
