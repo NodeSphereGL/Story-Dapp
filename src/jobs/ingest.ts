@@ -7,6 +7,8 @@ export interface IngestionJobConfig {
   dappSlug: string;
   dappName: string;
   hoursBack: number | undefined;
+  startDate?: Date;  // Custom start date for historical crawling
+  endDate?: Date;    // Custom end date for historical crawling
 }
 
 export interface IngestionJobResult {
@@ -67,9 +69,17 @@ export class IngestionJob {
         throw new Error(`No addresses found for dApp ${this.config.dappSlug}`);
       }
 
-      // Step 4: Calculate cutoff time
-      const cutoffTime = calculateIngestionCutoff(this.config.hoursBack!);
-      console.log(`Ingestion cutoff time: ${cutoffTime.toISOString()}`);
+      // Step 4: Calculate cutoff time based on config
+      let cutoffTime: Date;
+      if (this.config.startDate && this.config.endDate) {
+        // Use custom date range for historical crawling
+        cutoffTime = this.config.startDate;
+        console.log(`📅 Historical crawling from ${this.config.startDate.toISOString()} to ${this.config.endDate.toISOString()}`);
+      } else {
+        // Use default hours back logic
+        cutoffTime = calculateIngestionCutoff(this.config.hoursBack!);
+        console.log(`⏰ Standard ingestion cutoff time: ${cutoffTime.toISOString()}`);
+      }
 
       // Step 5: Ingest transactions and update stats
       const statsResult = await statsRepository.ingestDappTransactions(

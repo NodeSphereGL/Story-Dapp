@@ -38,6 +38,7 @@ const migrations = [
     telegram VARCHAR(500) NULL,
     discord VARCHAR(500) NULL,
     github VARCHAR(125) NULL,
+    all_time_txs BIGINT DEFAULT 0,
     status TINYINT DEFAULT 1,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

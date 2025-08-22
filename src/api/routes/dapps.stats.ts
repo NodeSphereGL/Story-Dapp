@@ -189,16 +189,37 @@ export async function getDappStats(req: Request, res: Response): Promise<void> {
  * GET /api/dapps/stats endpoint (alternative for GET requests)
  */
 export async function getDappStatsGet(req: Request, res: Response): Promise<void> {
-  // Convert query parameters to body format for validation
-  const body = {
-    timeframe: req.query['timeframe'] as Timeframe,
-    dapp_names: Array.isArray(req.query['dapp_names']) 
-      ? req.query['dapp_names'] 
-      : [req.query['dapp_names'] as string],
-    include_sparklines: req.query['include_sparklines'] === 'true'
-  };
-  
-  // Set body and call the main handler
-  req.body = body;
-  await getDappStats(req, res);
+  try {
+    // Convert query parameters to body format for validation
+    const timeframe = req.query['timeframe'];
+    const dapp_names = req.query['dapp_names'];
+    const include_sparklines = req.query['include_sparklines'];
+    
+    // Validate required parameters
+    if (!timeframe || !dapp_names) {
+      res.status(400).json({
+        success: false,
+        error: 'Missing required parameters: timeframe and dapp_names'
+      });
+      return;
+    }
+    
+    const body = {
+      timeframe: timeframe as Timeframe,
+      dapp_names: Array.isArray(dapp_names) 
+        ? dapp_names 
+        : [dapp_names as string],
+      include_sparklines: include_sparklines === 'true'
+    };
+    
+    // Set body and call the main handler
+    req.body = body;
+    await getDappStats(req, res);
+  } catch (error) {
+    console.error('Error in getDappStatsGet:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error'
+    });
+  }
 }

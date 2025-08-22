@@ -68,7 +68,7 @@ export function createServer(): express.Application {
     });
   });
 
-  // API routes
+  // API routes with versioning
   app.use('/api/dapps', (req, res, next) => {
     // Add API versioning header
     res.setHeader('X-API-Version', '1.0.0');
@@ -79,8 +79,8 @@ export function createServer(): express.Application {
   app.post('/api/dapps/stats', getDappStats);
   app.get('/api/dapps/stats', getDappStatsGet);
 
-  // 404 handler
-  app.use('*', (req, res) => {
+  // 404 handler - using explicit path instead of wildcard
+  app.use((req, res) => {
     res.status(404).json({
       success: false,
       error: 'Endpoint not found',

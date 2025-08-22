@@ -12,6 +12,9 @@
     "db:migrate": "tsx scripts/migrate.ts",
     "db:seed": "tsx scripts/seed-dapps.ts",
     "ingest": "tsx scripts/ingest.ts",
+    "ingest:historical": "tsx scripts/ingest.ts --historical",
+    "crawl:all": "tsx scripts/crawl-all.ts",
+    "dapp:update-txs": "tsx scripts/update-all-time-txs.ts",
     "test:setup": "tsx scripts/test-setup.ts"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-import { ingestDapp, ingestMultipleDapps } from '../src/jobs/ingest';
+import { ingestDapp, ingestMultipleDapps, IngestionJob, IngestionJobResult } from '../src/jobs/ingest';
 
 /**
  * Manual ingestion script
@@ -43,11 +43,37 @@ async function manualIngestion(): Promise<void> {
   }
 }
 
-async function ingestSingleDapp(slug: string, title: string): Promise<void> {
+async function ingestSingleDapp(slug: string, title: string, options?: { startDate?: string; endDate?: string }): Promise<void> {
   console.log(`🔄 Starting manual ingestion for ${title} (${slug})...`);
   
   try {
-    const result = await ingestDapp(slug, title);
+    let result: IngestionJobResult;
+    
+    // Handle historical crawling if dates are provided
+    if (options?.startDate && options?.endDate) {
+      const startDate = new Date(options.startDate);
+      const endDate = new Date(options.endDate);
+      
+      if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+        throw new Error('Invalid date format. Use ISO format: YYYY-MM-DD');
+      }
+      
+      console.log(`📅 Historical crawling mode: ${startDate.toISOString()} to ${endDate.toISOString()}`);
+      
+      // Create custom ingestion job for historical data
+      const job = new IngestionJob({
+        dappSlug: slug,
+        dappName: title,
+        hoursBack: undefined,
+        startDate,
+        endDate
+      });
+      
+      result = await job.execute();
+    } else {
+      // Use standard ingestion
+      result = await ingestDapp(slug, title);
+    }
     
     if (result.success) {
       console.log(`✅ ${title} ingestion completed successfully!`);
@@ -67,6 +93,9 @@ async function ingestSingleDapp(slug: string, title: string): Promise<void> {
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   
+  console.log('🔍 Debug: Received arguments:', args);
+  console.log('🔍 Debug: Argument count:', args.length);
+  
   try {
     if (args.length === 0) {
       // No arguments, run batch ingestion
@@ -75,14 +104,26 @@ async function main(): Promise<void> {
       // Two arguments: slug and title
       const [slug, title] = args;
       await ingestSingleDapp(slug, title);
+    } else if (args.length === 5 && args[0] === '--historical') {
+      // Historical crawling: --historical <slug> <title> <startDate> <endDate>
+      const [, slug, title, startDate, endDate] = args;
+      console.log('🔍 Debug: Historical mode detected');
+      console.log('🔍 Debug: slug:', slug, 'title:', title, 'startDate:', startDate, 'endDate:', endDate);
+      await ingestSingleDapp(slug, title, { startDate, endDate });
     } else {
       console.log('Usage:');
-      console.log('  npm run ingest                    # Run batch ingestion for all dApps');
-      console.log('  npm run ingest <slug> <title>     # Ingest specific dApp');
+      console.log('  npm run ingest                                    # Run batch ingestion for all dApps');
+      console.log('  npm run ingest <slug> <title>                     # Ingest specific dApp');
+      console.log('  npm run ingest --historical <slug> <title> <startDate> <endDate>  # Historical crawling');
       console.log('');
       console.log('Examples:');
       console.log('  npm run ingest story-hunt "Story Hunt"');
       console.log('  npm run ingest verio "Verio"');
+      console.log('  npm run ingest --historical story-hunt "Story Hunt" 2024-05-01 2024-08-01');
+      console.log('  npm run ingest --historical verio "Verio" 2024-01-01 2024-04-01');
+      console.log('');
+      console.log('🔍 Debug: Current arguments don\'t match any pattern');
+      console.log('🔍 Debug: Expected 5 args for historical mode, got:', args.length);
       process.exit(1);
     }
     
