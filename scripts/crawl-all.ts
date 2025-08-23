@@ -213,8 +213,8 @@ class AllDappsCrawler {
       hoursTouched: new Set<Date>()
     };
     
-    // Set a reasonable cutoff time (e.g., 30 days back)
-    const cutoffTime = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    // Set a reasonable cutoff time (e.g., 90 days back)
+    const cutoffTime = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
     console.log(`   ⏰ Processing transactions from ${cutoffTime.toISOString()} onwards`);
     
     for (const address of addresses) {
