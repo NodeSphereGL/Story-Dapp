@@ -1,6 +1,7 @@
 import * as cron from 'node-cron';
 import { ingestionConfig } from '../config/env';
 import { ingestMultipleDapps } from './ingest';
+import { pool } from '../db/mysql';
 
 // Default dApps to track (these will be overridden by database data)
 const DEFAULT_DAPPS = [
@@ -23,6 +24,34 @@ export class IngestionScheduler {
   private config: SchedulerConfig;
   private cronJob: cron.ScheduledTask | null = null;
   private isRunning = false;
+
+  /**
+   * Fetch active dApps from database
+   */
+  private async fetchActiveDapps(): Promise<Array<{ slug: string; title: string }>> {
+    try {
+      const [rows] = await pool.execute(`
+        SELECT slug, title 
+        FROM dapps 
+        WHERE status = 1 
+        ORDER BY priority ASC, id ASC
+      `);
+      
+      const dapps = rows as Array<{ slug: string; title: string }>;
+      console.log(`📊 Fetched ${dapps.length} active dApps from database`);
+      
+      if (dapps.length === 0) {
+        console.log('⚠️  No active dApps found in database, using defaults');
+        return DEFAULT_DAPPS;
+      }
+      
+      return dapps;
+    } catch (error) {
+      console.error('❌ Error fetching dApps from database:', error);
+      console.log('⚠️  Falling back to default dApps');
+      return DEFAULT_DAPPS;
+    }
+  }
 
   constructor(config: SchedulerConfig = {}) {
     this.config = {
@@ -93,7 +122,17 @@ export class IngestionScheduler {
     try {
       console.log(`🔄 Starting scheduled ingestion at ${new Date().toISOString()}`);
       
-      const results = await ingestMultipleDapps(this.config.dapps!);
+      // Fetch active dApps from database
+      const activeDapps = await this.fetchActiveDapps();
+      
+      if (activeDapps.length === 0) {
+        console.log('⚠️  No dApps to process, skipping ingestion');
+        return;
+      }
+      
+      console.log(`📱 Processing ${activeDapps.length} active dApps: ${activeDapps.map(d => d.slug).join(', ')}`);
+      
+      const results = await ingestMultipleDapps(activeDapps);
       
       const successCount = results.filter(r => r.success).length;
       const totalTransactions = results.reduce((sum, r) => sum + r.transactionsProcessed, 0);
@@ -116,6 +155,42 @@ export class IngestionScheduler {
   async triggerIngestion(): Promise<void> {
     console.log('🔄 Manually triggering ingestion...');
     await this.runScheduledIngestion();
+  }
+
+  /**
+   * Manually trigger ingestion for specific dApps
+   */
+  async triggerIngestionForDapps(dappSlugs: string[]): Promise<void> {
+    console.log(`🔄 Manually triggering ingestion for dApps: ${dappSlugs.join(', ')}`);
+    
+    try {
+      // Fetch specific dApps from database
+      const [rows] = await pool.execute(`
+        SELECT slug, title 
+        FROM dapps 
+        WHERE status = 1 AND slug IN (${dappSlugs.map(() => '?').join(',')})
+        ORDER BY priority ASC, id ASC
+      `, dappSlugs);
+      
+      const dapps = rows as Array<{ slug: string; title: string }>;
+      
+      if (dapps.length === 0) {
+        console.log('⚠️  No matching active dApps found');
+        return;
+      }
+      
+      console.log(`📱 Processing ${dapps.length} dApps: ${dapps.map(d => d.slug).join(', ')}`);
+      
+      const results = await ingestMultipleDapps(dapps);
+      const successCount = results.filter(r => r.success).length;
+      const totalTransactions = results.reduce((sum, r) => sum + r.transactionsProcessed, 0);
+      
+      console.log(`✅ Manual ingestion completed: ${successCount}/${results.length} dApps successful`);
+      console.log(`📊 Total transactions processed: ${totalTransactions}`);
+      
+    } catch (error) {
+      console.error('❌ Manual ingestion failed:', error);
+    }
   }
 
   /**
@@ -168,10 +243,14 @@ export function stopScheduler(): void {
   ingestionScheduler.stop();
 }
 
-export function getSchedulerStatus() {
-  return ingestionScheduler.getStatus();
+export async function getSchedulerStatus() {
+  return await ingestionScheduler.getStatus();
 }
 
 export async function triggerManualIngestion(): Promise<void> {
   await ingestionScheduler.triggerIngestion();
+}
+
+export async function triggerIngestionForDapps(dappSlugs: string[]): Promise<void> {
+  await ingestionScheduler.triggerIngestionForDapps(dappSlugs);
 }
