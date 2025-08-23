@@ -10,6 +10,7 @@
     "test": "jest",
     "lint": "eslint \"src/**/*.ts\"",
     "db:migrate": "tsx scripts/migrate.ts",
+    "db:update-dapps": "tsx scripts/update-dapps-table.ts",
     "db:seed": "tsx scripts/seed-dapps.ts",
     "ingest": "tsx scripts/ingest.ts",
     "ingest:historical": "tsx scripts/ingest.ts --historical",
