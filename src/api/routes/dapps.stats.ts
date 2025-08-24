@@ -17,12 +17,16 @@ export type StatsRequest = z.infer<typeof statsRequestSchema>;
 // Response interfaces
 interface DappStatsResponse {
   name: string;
+  all_time_txs: number;
   users: {
     current: number;
     formatted: string;
-    change_24h: number;
-    change_7d: number;
-    change_30d: number;
+    current_24h: number;
+    current_7d: number;
+    current_30d: number;
+    change_24h: string;
+    change_7d: string;
+    change_30d: string;
     change_type: 'positive' | 'negative' | 'neutral';
   };
   transactions: {
@@ -30,9 +34,9 @@ interface DappStatsResponse {
     current_7d: number;
     current_30d: number;
     formatted: string;
-    change_24h: number;
-    change_7d: number;
-    change_30d: number;
+    change_24h: string;
+    change_7d: string;
+    change_30d: string;
     change_type: 'positive' | 'negative' | 'neutral';
   };
   sparkline_data: number[] | undefined;
@@ -116,26 +120,34 @@ export async function getDappStats(req: Request, res: Response): Promise<void> {
     // Get previous window stats for comparison
     const previousStats = await statsRepository.getDappStats(dappIds, tPrev1, t1);
     
-    // Calculate time windows for different periods
-    const now = new Date();
-    const t24h = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-    const t7d = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    const t30d = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+    // Use t0 (floored to hour UTC) to build all windows for consistency with hourly buckets
+    const now = t0;
     
-    // Calculate previous periods for change calculations
-    const t24hPrev = new Date(t24h.getTime() - 24 * 60 * 60 * 1000);
-    const t7dPrev = new Date(t7d.getTime() - 7 * 24 * 60 * 60 * 1000);
-    const t30dPrev = new Date(t30d.getTime() - 30 * 24 * 60 * 60 * 1000);
+    // Current periods
+    const t24h = new Date(t0.getTime() - 24 * 60 * 60 * 1000);        // Last 24h
+    const t7d = new Date(t0.getTime() - 7 * 24 * 60 * 60 * 1000);      // Last 7d  
+    const t30d = new Date(t0.getTime() - 30 * 24 * 60 * 60 * 1000);    // Last 30d
     
-    // Get stats for different time periods
+    // Previous equal periods for comparison
+    const t24hPrev = new Date(t24h.getTime() - 24 * 60 * 60 * 1000);   // 24h before t24h (previous 24h)
+    const t7dPrev = new Date(t7d.getTime() - 7 * 24 * 60 * 60 * 1000); // 7d before t7d (previous 7d)
+    const t30dPrev = new Date(t30d.getTime() - 30 * 24 * 60 * 60 * 1000); // 30d before t30d (previous 30d)
+    
+    // Get stats for current periods
     const stats24h = await statsRepository.getDappStats(dappIds, t24h, now);
     const stats7d = await statsRepository.getDappStats(dappIds, t7d, now);
     const stats30d = await statsRepository.getDappStats(dappIds, t30d, now);
     
-    // Get stats for previous periods to calculate changes
+    // Get stats for previous equal periods to calculate changes
     const stats24hPrev = await statsRepository.getDappStats(dappIds, t24hPrev, t24h);
     const stats7dPrev = await statsRepository.getDappStats(dappIds, t7dPrev, t7d);
     const stats30dPrev = await statsRepository.getDappStats(dappIds, t30dPrev, t30d);
+    
+    // Log time windows for debugging
+    console.log('🕐 Time windows for change calculations:');
+    console.log(`   24H: Current ${t24h.toISOString()} → ${now.toISOString()}, Previous ${t24hPrev.toISOString()} → ${t24h.toISOString()}`);
+    console.log(`   7D:  Current ${t7d.toISOString()} → ${now.toISOString()}, Previous ${t7dPrev.toISOString()} → ${t7d.toISOString()}`);
+    console.log(`   30D: Current ${t30d.toISOString()} → ${now.toISOString()}, Previous ${t30dPrev.toISOString()} → ${t30d.toISOString()}`);
     
     // Get sparkline data if requested
     let sparklineData: any[] = [];
@@ -162,25 +174,20 @@ export async function getDappStats(req: Request, res: Response): Promise<void> {
         const prev30d = stats30dPrev.find(s => s.dapp_id === dappId);
         
         // Helper function to calculate meaningful change percentages
-        const calculateChange = (current: number, previous: number): number => {
-          if (previous === 0) {
-            return current > 0 ? 100 : 0; // If no previous data, show 100% for any activity
-          }
-          if (current === 0) {
-            return previous > 0 ? -100 : 0; // If no current data, show -100% for any previous activity
-          }
-          return ((current - previous) / previous) * 100;
-        };
+                  const calculateChange = (current: number, previous: number): string => {
+            if (previous === 0) {
+              return current > 0 ? '100%' : '0%'; // If no previous data, show 100% for any activity
+            }
+            if (current === 0) {
+              return previous > 0 ? '-100%' : '0%'; // If no current data, show -100% for any previous activity
+            }
+            const percentage = ((current - previous) / previous) * 100;
+            const formatted = percentage.toFixed(2);
+            // Remove .00 if decimal is zero
+            return `${formatted.replace(/\.00$/, '')}%`;
+          };
         
-        // For 30D change, compare against a longer baseline to get more meaningful changes
-        const calculate30DChange = (current30d: number, current7d: number): number => {
-          // If we have 30D data, compare it to 7D to show trend
-          if (current30d > 0 && current7d > 0) {
-            const weeklyAvg = current30d / 4; // Approximate weekly average from 30D
-            return ((current7d - weeklyAvg) / weeklyAvg) * 100;
-          }
-          return current30d > 0 ? 100 : 0;
-        };
+
         
         // Format numbers like Facebook/X (27.2K, 1.5M, etc.)
         const formatNumber = (num: number): string => {
@@ -206,6 +213,9 @@ export async function getDappStats(req: Request, res: Response): Promise<void> {
           users: {
             current: current?.unique_users || 0,
             formatted: formatNumber(current?.unique_users || 0),
+            current_24h: current24h?.unique_users || 0,
+            current_7d: current7d?.unique_users || 0,
+            current_30d: current30d?.unique_users || 0,
             change_24h: calculateChange(
               current24h?.unique_users || 0,
               prev24h?.unique_users || 0
@@ -214,9 +224,9 @@ export async function getDappStats(req: Request, res: Response): Promise<void> {
               current7d?.unique_users || 0,
               prev7d?.unique_users || 0
             ),
-            change_30d: calculate30DChange(
+            change_30d: calculateChange(
               current30d?.unique_users || 0,
-              current7d?.unique_users || 0
+              prev30d?.unique_users || 0
             ),
             change_type: createChangeData(
               current?.unique_users || 0,
@@ -236,9 +246,9 @@ export async function getDappStats(req: Request, res: Response): Promise<void> {
               current7d?.tx_count || 0,
               prev7d?.tx_count || 0
             ),
-            change_30d: calculate30DChange(
+            change_30d: calculateChange(
               current30d?.tx_count || 0,
-              current7d?.tx_count || 0
+              prev30d?.tx_count || 0
             ),
             change_type: createChangeData(
               current?.tx_count || 0,
