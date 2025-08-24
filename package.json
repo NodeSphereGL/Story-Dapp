@@ -15,6 +15,7 @@
     "ingest": "tsx scripts/ingest.ts",
     "ingest:historical": "tsx scripts/ingest.ts --historical",
     "crawl:all": "tsx scripts/crawl-all.ts",
+    "update:recent": "tsx scripts/update-recent.ts",
     "dapp:update-txs": "tsx scripts/update-all-time-txs.ts",
     "test:setup": "tsx scripts/test-setup.ts"
   },

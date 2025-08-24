@@ -29,15 +29,24 @@ interface TransactionSummary {
 
 /**
  * Main crawling script for all dApps
+ * 
+ * ⚠️  WARNING: This script is designed for INITIAL DATA POPULATION only!
+ * Running it on a live system with existing data will create artificial spikes.
+ * 
+ * For ongoing updates, use the regular ingestion scheduler instead.
  */
 class AllDappsCrawler {
   private chainId: number = 1; // Default to main chain
   private processedDapps: number = 0;
   private totalDapps: number = 0;
   private startTime: Date;
+  private readonly isHistoricalMode: boolean;
+  private readonly maxDaysBack: number;
 
-  constructor() {
+  constructor(options: { historical?: boolean; maxDaysBack?: number } = {}) {
     this.startTime = new Date();
+    this.isHistoricalMode = options.historical ?? false;
+    this.maxDaysBack = options.maxDaysBack ?? 90;
   }
 
   /**
@@ -46,6 +55,13 @@ class AllDappsCrawler {
   async run(): Promise<void> {
     console.log('🚀 Starting comprehensive dApp crawling...');
     console.log('⏰ Start time:', this.startTime.toISOString());
+    console.log(`📊 Mode: ${this.isHistoricalMode ? 'Historical (Full)' : 'Recent Only'}`);
+    console.log(`📅 Max days back: ${this.maxDaysBack}`);
+    
+    // Safety check for live systems
+    if (!this.isHistoricalMode) {
+      await this.performSafetyCheck();
+    }
     
     try {
       // Step 1: Get all active dApps ordered by priority
@@ -75,6 +91,58 @@ class AllDappsCrawler {
     } catch (error) {
       console.error('❌ Fatal error during crawling:', error);
       throw error;
+    }
+  }
+
+  /**
+   * Safety check to prevent running on live systems with existing data
+   */
+  private async performSafetyCheck(): Promise<void> {
+    console.log('🔒 Performing safety check...');
+    
+    try {
+      // Check if we already have significant data
+      const [txCountResult] = await pool.execute('SELECT SUM(tx_count) as total FROM dapp_stats_hourly');
+      const totalTxs = (txCountResult as any[])[0].total || 0;
+      
+      if (totalTxs > 10000) { // Arbitrary threshold
+        console.log(`⚠️  WARNING: Database already contains ${totalTxs.toLocaleString()} transactions!`);
+        console.log('⚠️  This suggests this is a live system with existing data.');
+        console.log('⚠️  Running this script will create artificial data spikes!');
+        console.log('');
+        console.log('❓ Are you sure you want to continue?');
+        console.log('   - Type "YES" to proceed (not recommended for live systems)');
+        console.log('   - Press Ctrl+C to abort');
+        console.log('');
+        console.log('💡 Recommendation: Use the regular ingestion scheduler instead.');
+        console.log('   Run: npm run start (for continuous ingestion)');
+        console.log('   Or: npm run dapp:ingest (for manual ingestion)');
+        
+        // Wait for user confirmation
+        const readline = require('readline');
+        const rl = readline.createInterface({
+          input: process.stdin,
+          output: process.stdout
+        });
+        
+        const answer = await new Promise<string>((resolve) => {
+          rl.question('Continue? (YES/Ctrl+C): ', resolve);
+        });
+        
+        rl.close();
+        
+        if (answer !== 'YES') {
+          console.log('❌ Aborted by user');
+          process.exit(0);
+        }
+        
+        console.log('⚠️  Proceeding with caution...');
+      } else {
+        console.log('✅ Safety check passed - minimal existing data detected');
+      }
+    } catch (error) {
+      console.error('⚠️  Could not perform safety check:', error);
+      console.log('⚠️  Proceeding with caution...');
     }
   }
 
@@ -213,9 +281,9 @@ class AllDappsCrawler {
       hoursTouched: new Set<Date>()
     };
     
-    // Set a reasonable cutoff time (e.g., 90 days back)
-    const cutoffTime = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
-    console.log(`   ⏰ Processing transactions from ${cutoffTime.toISOString()} onwards`);
+    // Set cutoff time based on mode
+    const cutoffTime = new Date(Date.now() - this.maxDaysBack * 24 * 60 * 60 * 1000);
+    console.log(`   ⏰ Processing transactions from ${cutoffTime.toISOString()} onwards (${this.maxDaysBack} days back)`);
     
     for (const address of addresses) {
       try {
@@ -390,7 +458,30 @@ class AllDappsCrawler {
  * Main execution
  */
 async function main(): Promise<void> {
-  const crawler = new AllDappsCrawler();
+  // Parse command line arguments
+  const args = process.argv.slice(2);
+  const isHistorical = args.includes('--historical');
+  const maxDaysBack = args.includes('--days') ? 
+    parseInt(args[args.indexOf('--days') + 1]) || 90 : 90;
+  
+  console.log('📋 Script Options:');
+  console.log(`   Historical mode: ${isHistorical ? 'Yes' : 'No'}`);
+  console.log(`   Max days back: ${maxDaysBack}`);
+  console.log('');
+  
+  if (isHistorical) {
+    console.log('⚠️  HISTORICAL MODE: This will populate full historical data');
+    console.log('⚠️  Use this for initial setup or data recovery only');
+  } else {
+    console.log('📊 RECENT MODE: This will only process recent data');
+    console.log('📊 Use this for ongoing updates (recommended for live systems)');
+  }
+  console.log('');
+  
+  const crawler = new AllDappsCrawler({ 
+    historical: isHistorical, 
+    maxDaysBack 
+  });
   
   try {
     await crawler.run();
