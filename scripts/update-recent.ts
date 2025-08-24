@@ -151,7 +151,7 @@ class RecentDataUpdater {
     try {
       // Get addresses from database (don't call API repeatedly)
       const [rows] = await pool.execute(`
-        SELECT da.address_hash 
+        SELECT a.address_hash 
         FROM dapp_addresses da
         JOIN addresses a ON da.address_id = a.id
         WHERE da.dapp_id = ? AND a.chain_id = ?
