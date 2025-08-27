@@ -12,10 +12,13 @@
     "db:migrate": "tsx scripts/migrate.ts",
     "db:update-dapps": "tsx scripts/update-dapps-table.ts",
     "db:seed": "tsx scripts/seed-dapps.ts",
+    "db:update-schema": "tsx scripts/update-schema.ts",
     "ingest": "tsx scripts/ingest.ts",
     "ingest:historical": "tsx scripts/ingest.ts --historical",
     "crawl:all": "tsx scripts/crawl-all.ts",
     "update:recent": "tsx scripts/update-recent.ts",
+    "reset:stats": "tsx scripts/reset-stats.ts",
+    "verify:calc": "tsx scripts/verify-calculations.ts",
     "dapp:update-txs": "tsx scripts/update-all-time-txs.ts",
     "test:setup": "tsx scripts/test-setup.ts"
   },

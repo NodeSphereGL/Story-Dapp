@@ -384,6 +384,58 @@ class AllDappsCrawler {
   }
 
   /**
+   * Bulk insert transaction data for historical crawling
+   */
+  private async bulkInsertTransactionData(
+    dappId: number, 
+    hourData: Map<string, { txCount: number; users: Set<string> }>
+  ): Promise<void> {
+    try {
+      console.log(`       💾 Bulk inserting data for ${hourData.size} hours...`);
+      
+      for (const [hourKey, data] of hourData) {
+        const tsHour = new Date(hourKey);
+        
+        // Upsert hourly stats
+        await pool.execute(`
+          INSERT INTO dapp_stats_hourly (dapp_id, chain_id, ts_hour, tx_count, unique_users)
+          VALUES (?, ?, ?, ?, ?)
+          ON DUPLICATE KEY UPDATE 
+            tx_count = VALUES(tx_count),
+            unique_users = VALUES(unique_users),
+            updated_at = CURRENT_TIMESTAMP
+        `, [dappId, this.chainId, tsHour, data.txCount, data.users.size]);
+        
+        // Insert users for this hour
+        for (const userAddress of data.users) {
+          await pool.execute(`
+            INSERT INTO dapp_hourly_users (dapp_id, chain_id, ts_hour, user_address)
+            VALUES (?, ?, ?, ?)
+            ON DUPLICATE KEY UPDATE 
+              dapp_id = dapp_id  -- No-op update to refresh timestamp
+          `, [dappId, this.chainId, tsHour, userAddress.toLowerCase()]);
+        }
+      }
+      
+      console.log(`       ✅ Bulk insert completed for ${hourData.size} hours`);
+      
+    } catch (error) {
+      console.error(`       ❌ Error in bulk insert:`, error);
+    }
+  }
+
+  /**
+   * Check if data already exists for a specific hour
+   */
+  private async checkHourDataExists(dappId: number, tsHour: Date): Promise<boolean> {
+    const [exists] = await pool.execute(`
+      SELECT COUNT(*) as count FROM dapp_stats_hourly 
+      WHERE dapp_id = ? AND chain_id = ? AND ts_hour = ?
+    `, [dappId, this.chainId, tsHour]);
+    return (exists as any[])[0].count > 0;
+  }
+
+  /**
    * Step 2C: Insert aggregated data and refresh unique user counts
    */
   private async insertAggregatedData(dapp: DappRecord, summary: TransactionSummary): Promise<void> {

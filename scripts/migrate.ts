@@ -81,6 +81,7 @@ const migrations = [
     unique_users INT NOT NULL DEFAULT 0,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (dapp_id, chain_id, ts_hour),
+    UNIQUE KEY uniq_dapp_chain_hour (dapp_id, chain_id, ts_hour),
     KEY idx_dsh_time (ts_hour),
     KEY idx_dsh_dapp_time (dapp_id, ts_hour),
     CONSTRAINT fk_dsh_chain FOREIGN KEY (chain_id) REFERENCES chains(id),
