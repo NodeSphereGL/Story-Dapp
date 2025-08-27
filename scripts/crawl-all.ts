@@ -204,6 +204,36 @@ class AllDappsCrawler {
   }
 
   /**
+   * Helper method to get addresses from database fallback
+   */
+  private async getAddressesFromDatabase(dappId: number): Promise<AddressRecord[]> {
+    try {
+      const [dbAddresses] = await pool.execute(`
+        SELECT a.id, a.address_hash, a.label, a.address_type
+        FROM addresses a
+        JOIN dapp_addresses da ON a.id = da.address_id
+        WHERE da.dapp_id = ? AND a.chain_id = ?
+        ORDER BY a.first_seen_at ASC
+      `, [dappId, this.chainId]);
+      
+      if ((dbAddresses as any[]).length === 0) {
+        return [];
+      }
+      
+      // Format database results to match API format
+      return (dbAddresses as any[]).map(addr => ({
+        id: addr.id,
+        address_hash: addr.address_hash,
+        label: addr.label || `Address for ${dappId}`
+      }));
+      
+    } catch (error) {
+      console.error(`       ❌ Database fallback query failed:`, error);
+      return [];
+    }
+  }
+
+  /**
    * Step 2A: Get addresses for a dApp
    */
   private async getDappAddresses(dapp: DappRecord): Promise<AddressRecord[]> {
@@ -214,8 +244,18 @@ class AllDappsCrawler {
       const addressItems = await storyscanClient.getAddressesBySlug(dapp.slug, 'protocol');
       
       if (!addressItems || addressItems.length === 0) {
-        console.log(`   ⚠️  No addresses returned from API for ${dapp.slug}`);
-        return [];
+        console.log(`   ⚠️  No addresses returned from API for ${dapp.slug}, trying database fallback...`);
+        
+        // Fallback: Get addresses from database
+        const dbAddresses = await this.getAddressesFromDatabase(dapp.id);
+        
+        if (dbAddresses.length === 0) {
+          console.log(`   ❌ No addresses found in database for ${dapp.slug}`);
+          return [];
+        }
+        
+        console.log(`   💾 Database fallback returned ${dbAddresses.length} addresses`);
+        return dbAddresses;
       }
       
       console.log(`   📡 API returned ${addressItems.length} address items`);
@@ -261,10 +301,25 @@ class AllDappsCrawler {
         }
       }
       
+      console.log(`   ✅ Successfully processed ${addresses.length} addresses from API`);
       return addresses;
       
     } catch (error) {
       console.error(`   ❌ Error fetching addresses for ${dapp.slug}:`, error);
+      
+      // Final fallback: Try database even if API call failed
+      try {
+        console.log(`   💾 Trying database fallback after API error...`);
+        const dbAddresses = await this.getAddressesFromDatabase(dapp.id);
+        
+        if (dbAddresses.length > 0) {
+          console.log(`   ✅ Database fallback successful: ${dbAddresses.length} addresses found`);
+          return dbAddresses;
+        }
+      } catch (dbError) {
+        console.error(`   ❌ Database fallback also failed:`, dbError);
+      }
+      
       return [];
     }
   }
